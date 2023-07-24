@@ -15,6 +15,9 @@ Future<String> loginUser() async {
     try {
         bool isLoggedIn = await checkCredentials();
         print("There is a user: $isLoggedIn");
+        if (!isLoggedIn) {
+            return "Wrong credentials";
+        }
         return await greetUser();
     } catch (error) {
         return "error caught: $error";
