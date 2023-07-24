@@ -10,8 +10,8 @@ Future<double> calculateTotal() async {
         List<dynamic> userProducts = jsonDecode(userOrders);
 
         double total = 0;
-        for (final product in userProducts) {
-            String productPrice = await fetchProductPrice(product);
+        for (int idx = 0; idx < userProducts.length; idx++) {
+            String productPrice = await fetchProductPrice(userProducts[idx]);
             total += jsonDecode(productPrice);
         }
 
